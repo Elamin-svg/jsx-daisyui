@@ -1,0 +1,40 @@
+# Mask
+
+Mask crops the content of an element to common shapes.
+
+## All shapes
+
+<Preview name="mask-all-shapes" />
+
+## Avatar stack
+
+<Preview name="mask-avatar-stack" />
+
+## Team grid
+
+<Preview name="mask-team" />
+
+## Half mask
+
+<Preview name="mask-half" />
+
+---
+
+## Props
+
+### Mask
+
+<PropsTable
+  data={[
+    {
+      name: "shape",
+      type: "'squircle' | 'heart' | 'hexagon' | 'hexagon-2' | 'decagon' | 'pentagon' | 'diamond' | 'square' | 'circle' | 'star' | 'star-2' | 'triangle' | 'triangle-2' | 'triangle-3' | 'triangle-4'",
+      description: "The shape to crop the element into.",
+    },
+    {
+      name: "half",
+      type: "'1' | '2'",
+      description: "Crops only the first or second half of the element.",
+    },
+  ]}
+/>

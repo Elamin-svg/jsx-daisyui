@@ -1,0 +1,194 @@
+# Drawer
+
+Drawer is a panel that slides in from the edge of the screen, triggered by a button.
+
+## Default
+
+<Preview name="drawer-default" />
+
+## Navbar
+
+<Preview name="drawer-navbar" />
+
+## Right side
+
+<Preview name="drawer-right" />
+
+---
+
+## Props
+
+### Drawer
+
+<PropsTable
+  data={[
+    {
+      name: "open",
+      type: "boolean",
+      required: true,
+      description: "Controls whether the drawer is open or closed.",
+    },
+    {
+      name: "onOpen",
+      type: "() => void",
+      required: true,
+      description: "Called when the drawer requests to open.",
+    },
+    {
+      name: "onClose",
+      type: "() => void",
+      required: true,
+      description:
+        "Called when the drawer requests to close (overlay click or close action).",
+    },
+    {
+      name: "onToggle",
+      type: "() => void",
+      required: false,
+      description: "Toggles the drawer between open and closed states.",
+    },
+    {
+      name: "end",
+      type: "boolean",
+      default: "false",
+      description:
+        "When true, the drawer slides in from the right side of the screen.",
+    },
+  ]}
+/>
+
+### Drawer.Content
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description: "Main page content rendered beside the drawer.",
+    },
+  ]}
+/>
+
+### Drawer.Side
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description:
+        "Content rendered inside the drawer panel (navigation, forms, etc.).",
+    },
+  ]}
+/>
+
+### Drawer.Trigger
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description: "Element that opens the drawer when clicked.",
+    },
+    {
+      name: "onClick",
+      type: "React.MouseEventHandler<HTMLButtonElement>",
+      description:
+        "Optional click handler called in addition to opening the drawer.",
+    },
+  ]}
+/>
+
+### Drawer.Close
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description: "Element that closes the drawer when clicked.",
+    },
+    {
+      name: "onClick",
+      type: "React.MouseEventHandler<HTMLButtonElement>",
+      description: "Optional click handler called alongside the close action.",
+    },
+  ]}
+/>
+
+### Drawer.Header
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description: "Header content (typically title and description).",
+    },
+  ]}
+/>
+
+### Drawer.Title
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description: "Drawer title rendered as a heading element.",
+    },
+  ]}
+/>
+
+### Drawer.Description
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description: "Supporting text below the title.",
+    },
+  ]}
+/>
+
+### Drawer.Footer
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description:
+        "Footer content pinned to the bottom of the drawer (usually actions).",
+    },
+  ]}
+/>
+
+### useDrawer
+
+<PropsTable
+  data={[
+    {
+      name: "open",
+      type: "boolean",
+      description: "Current open state of the drawer.",
+    },
+    {
+      name: "openDrawer",
+      type: "() => void",
+      description: "Opens the drawer.",
+    },
+    {
+      name: "close",
+      type: "() => void",
+      description: "Closes the drawer.",
+    },
+    {
+      name: "toggle",
+      type: "() => void",
+      description: "Toggles between open and closed state.",
+    },
+  ]}
+/>

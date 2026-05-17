@@ -1,0 +1,26 @@
+# Toast
+
+Toast displays brief, non-blocking notifications that appear and disappear automatically.
+
+## Default
+
+<Preview name="toast-default" />
+
+---
+
+## Props
+
+### Toaster
+
+<PropsTable
+  data={[
+    {
+      name: "position",
+      type: "'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center'",
+      default: "'bottom-right'",
+      description: "The position where toasts will appear on the screen.",
+    },
+  ]}
+/>
+
+> This component wraps [Sonner](https://sonner.emilkowal.ski/). You can pass any of Sonner's `ToasterProps` to it.

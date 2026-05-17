@@ -1,0 +1,99 @@
+# Card
+
+Card is a container for grouping related content and actions.
+
+## Default
+
+<Preview name="card-default" />
+
+## With image
+
+<Preview name="card-image" />
+
+## Side layout
+
+<Preview name="card-side" />
+
+## Variants
+
+<Preview name="card-variants" />
+
+## Centered
+
+<Preview name="card-centered" />
+
+---
+
+## Props
+
+### Card
+
+<PropsTable
+  data={[
+    {
+      name: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      default: "'md'",
+      description: "The size of the card.",
+    },
+    {
+      name: "variant",
+      type: "'shadow' | 'border' | 'dash'",
+      default: "'shadow'",
+      description: "The visual style of the card container.",
+    },
+    {
+      name: "side",
+      type: "boolean",
+      description: "Displays image on the side (horizontal layout).",
+    },
+    {
+      name: "imageFull",
+      type: "boolean",
+      description: "Makes the image fill the card and places content over it.",
+    },
+  ]}
+/>
+
+### Card.Body
+
+<PropsTable
+  data={[
+    {
+      name: "centered",
+      type: "boolean",
+      description: "Centers text and content inside the body.",
+    },
+  ]}
+/>
+
+### Card.Actions
+
+<PropsTable
+  data={[
+    {
+      name: "justify",
+      type: "'start' | 'center' | 'end'",
+      default: "'end'",
+      description: "Justification of the action buttons.",
+    },
+  ]}
+/>
+
+### Card.Figure
+
+<PropsTable
+  data={[
+    {
+      name: "src",
+      type: "string",
+      description:
+        "URL for the image. If provided, renders an <img> tag. Otherwise, renders children.",
+    },
+    {
+      name: "alt",
+      type: "string",
+      description: "Alt text for the image.",
+    },
+  ]}
+/>

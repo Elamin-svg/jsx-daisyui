@@ -1,0 +1,48 @@
+# Stat
+
+Stat is used to display key metrics with a title, value, and description.
+
+## Default
+
+<Preview name="stat-default" />
+
+## Vertical
+
+<Preview name="stat-vertical" />
+
+## With figure
+
+<Preview name="stat-with-figure" />
+
+## Centered
+
+<Preview name="stat-centered" />
+
+---
+
+## Props
+
+### Stat.Root
+
+<PropsTable
+  data={[
+    {
+      name: "direction",
+      type: "'horizontal' | 'vertical' | 'responsive'",
+      default: "'horizontal'",
+      description: "Layout direction of the stat items.",
+    },
+  ]}
+/>
+
+### Stat.Item
+
+<PropsTable
+  data={[
+    {
+      name: "centered",
+      type: "boolean",
+      description: "Centers text and content inside the item.",
+    },
+  ]}
+/>

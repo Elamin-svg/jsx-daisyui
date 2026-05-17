@@ -1,0 +1,81 @@
+# Timeline
+
+Timeline is used to display a sequence of events along a horizontal or vertical axis.
+
+## Default
+
+<Preview name="timeline-default" />
+
+## Vertical
+
+<Preview name="timeline-vertical" />
+
+## Both sides
+
+<Preview name="timeline-both-sides" />
+
+## Colored
+
+<Preview name="timeline-colored" />
+
+---
+
+## Props
+
+### Timeline.Root
+
+<PropsTable
+  data={[
+    {
+      name: "direction",
+      type: "'horizontal' | 'vertical'",
+      description: "Layout direction of the timeline.",
+    },
+    {
+      name: "snapIcon",
+      type: "boolean",
+      description: "Allows snapping to the icon on scroll.",
+    },
+    {
+      name: "compact",
+      type: "boolean",
+      description: "Reduces padding around the timeline items.",
+    },
+  ]}
+/>
+
+### Timeline.Item
+
+<PropsTable
+  data={[
+    {
+      name: "first",
+      type: "boolean",
+      description:
+        "Marks the item as the first in the timeline (hides top/left line).",
+    },
+    {
+      name: "last",
+      type: "boolean",
+      description:
+        "Marks the item as the last in the timeline (hides bottom/right line).",
+    },
+    {
+      name: "lineColor",
+      type: "string",
+      description: "Custom color class for the connecting lines.",
+    },
+  ]}
+/>
+
+### Timeline.Start & Timeline.End
+
+<PropsTable
+  data={[
+    {
+      name: "box",
+      type: "boolean",
+      description: "Wraps the content in a styled box.",
+    },
+  ]}
+/>

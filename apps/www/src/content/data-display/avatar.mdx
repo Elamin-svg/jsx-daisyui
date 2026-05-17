@@ -1,0 +1,97 @@
+# Avatar
+
+Avatar is used to display a user profile picture or a placeholder.
+
+## Default
+
+<Preview name="avatar-default" />
+
+## Placeholder
+
+<Preview name="avatar-placeholder" />
+
+## Sizes
+
+<Preview name="avatar-sizes" />
+
+## Shapes
+
+<Preview name="avatar-shapes" />
+
+## Status
+
+<Preview name="avatar-status" />
+
+## Group
+
+<Preview name="avatar-group" />
+
+---
+
+## Props
+
+### Avatar
+
+<PropsTable
+  data={[
+    {
+      name: "src",
+      type: "string",
+      description: "URL of the avatar image.",
+    },
+    {
+      name: "alt",
+      type: "string",
+      description: "Alt text for the image.",
+    },
+    {
+      name: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      default: "'md'",
+      description: "The size of the avatar.",
+    },
+    {
+      name: "shape",
+      type: "'square' | 'rounded' | 'circle' | 'heart' | 'squircle' | 'hexagon'",
+      default: "'circle'",
+      description: "The shape of the avatar.",
+    },
+    {
+      name: "status",
+      type: "'online' | 'offline'",
+      description: "Adds a status indicator.",
+    },
+    {
+      name: "placeholder",
+      type: "boolean",
+      description: "Applies placeholder styling if no image is used.",
+    },
+    {
+      name: "ring",
+      type: "boolean",
+      description: "Adds a decorative ring around the avatar.",
+    },
+  ]}
+/>
+
+### Avatar.Counter
+
+<PropsTable
+  data={[
+    {
+      name: "count",
+      type: "number",
+      description: "The number to display (e.g. +99).",
+    },
+    {
+      name: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      description: "The size of the counter avatar.",
+    },
+    {
+      name: "shape",
+      type: "'square' | 'rounded' | 'circle' | 'heart' | 'squircle' | 'hexagon'",
+      description: "The shape of the counter avatar.",
+    },
+  ]}
+/>

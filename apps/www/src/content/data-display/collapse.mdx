@@ -1,0 +1,69 @@
+# Collapse
+
+Collapse is used to show and hide a single content area.
+
+## Default
+
+<Preview name="collapse-default" />
+
+## Arrow icon
+
+<Preview name="collapse-arrow" />
+
+## Plus icon
+
+<Preview name="collapse-plus" />
+
+## Checkbox method
+
+<Preview name="collapse-checkbox" />
+
+## Details method
+
+<Preview name="collapse-details" />
+
+---
+
+## Props
+
+### Collapse.Root
+
+<PropsTable
+  data={[
+    {
+      name: "icon",
+      type: "'none' | 'arrow' | 'plus'",
+      default: "'none'",
+      description: "Icon variant to display on the title.",
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: "Forces the collapse to stay open.",
+    },
+    {
+      name: "close",
+      type: "boolean",
+      description: "Forces the collapse to stay closed.",
+    },
+    {
+      name: "method",
+      type: "'focus' | 'checkbox' | 'details'",
+      default: "'focus'",
+      description: "The interaction method for opening/closing.",
+    },
+  ]}
+/>
+
+### Collapse.Title
+
+<PropsTable
+  data={[
+    {
+      name: "iconStart",
+      type: "boolean",
+      description:
+        "Moves the arrow/plus icon to the start (left) of the title.",
+    },
+  ]}
+/>

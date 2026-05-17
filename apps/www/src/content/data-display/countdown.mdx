@@ -1,0 +1,154 @@
+# Countdown
+
+Countdown displays an animated number that counts down to zero.
+
+## Simple
+
+<Preview name="countdown-simple" />
+
+## Clock
+
+<Preview name="countdown-clock" />
+
+## Timer
+
+<Preview name="countdown-timer" />
+
+## Timer Boxed
+
+<Preview name="countdown-timer-boxed" />
+
+## Ecommerce
+
+<Preview name="countdown-ecommerce" />
+
+---
+
+## Props
+
+### Countdown.Value
+
+<PropsTable
+  data={[
+    {
+      name: "value",
+      type: "number",
+      description: "The number to display.",
+    },
+    {
+      name: "digits",
+      type: "2 | 3",
+      description: "Minimum digits to display (pads with leading zeros).",
+    },
+    {
+      name: "aria-label",
+      type: "string",
+      description: "Accessible label for the countdown value.",
+    },
+  ]}
+/>
+
+### Countdown.Clock
+
+<PropsTable
+  data={[
+    {
+      name: "hours",
+      type: "number",
+      default: "0",
+      description: "Hours value.",
+    },
+    {
+      name: "minutes",
+      type: "number",
+      default: "0",
+      description: "Minutes value.",
+    },
+    {
+      name: "seconds",
+      type: "number",
+      default: "0",
+      description: "Seconds value.",
+    },
+    {
+      name: "colons",
+      type: "boolean",
+      default: "false",
+      description: "Uses colons (10:24:59) instead of h/m/s suffixes.",
+    },
+    {
+      name: "size",
+      type: "string",
+      default: "'text-2xl'",
+      description: "Tailwind text size class.",
+    },
+    {
+      name: "className",
+      type: "string",
+      description: "Custom CSS class.",
+    },
+  ]}
+/>
+
+### Countdown.Timer
+
+<PropsTable
+  data={[
+    {
+      name: "days",
+      type: "number",
+      description: "Days value (hides if omitted).",
+    },
+    {
+      name: "hours",
+      type: "number",
+      description: "Hours value (hides if omitted).",
+    },
+    {
+      name: "minutes",
+      type: "number",
+      description: "Minutes value (hides if omitted).",
+    },
+    {
+      name: "seconds",
+      type: "number",
+      description: "Seconds value (hides if omitted).",
+    },
+    {
+      name: "boxed",
+      type: "boolean",
+      default: "false",
+      description: "Wraps each unit in a styled background box.",
+    },
+    {
+      name: "size",
+      type: "string",
+      default: "'text-5xl'",
+      description: "Tailwind text size class.",
+    },
+    {
+      name: "className",
+      type: "string",
+      description: "Custom CSS class.",
+    },
+  ]}
+/>
+
+### useCountdown
+
+<PropsTable
+  data={[
+    {
+      name: "initial",
+      type: "number",
+      description:
+        "Starting value. Wraps back to this value after reaching zero.",
+    },
+    {
+      name: "interval",
+      type: "number",
+      default: "1000",
+      description: "Tick interval in milliseconds.",
+    },
+  ]}
+/>

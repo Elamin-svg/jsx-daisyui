@@ -1,0 +1,96 @@
+# Filter
+
+Filter is used to let users narrow down content by selecting category tags.
+
+## Default
+
+<Preview name="filter-default" />
+
+## Colors
+
+<Preview name="filter-colors" />
+
+## Sizes
+
+<Preview name="filter-sizes" />
+
+## Checkbox mode
+
+<Preview name="filter-checkbox" />
+
+---
+
+## Props
+
+### Filter
+
+<PropsTable
+  data={[
+    {
+      name: "asForm",
+      type: "boolean",
+      default: "true",
+      description:
+        "Renders as a <form> when true, or a <div> when false. Use false when inside another form.",
+    },
+    {
+      name: "name",
+      type: "string",
+      description:
+        "Shared name attribute forwarded to every FilterItem via context.",
+    },
+  ]}
+/>
+
+### FilterReset
+
+<PropsTable
+  data={[
+    {
+      name: "mode",
+      type: "'form' | 'radio'",
+      default: "'form'",
+      description:
+        "Use 'form' for native form reset, or 'radio' for non-form wrappers.",
+    },
+    {
+      name: "label",
+      type: "string",
+      default: "'×'",
+      description: "Label shown on the reset button.",
+    },
+    {
+      name: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      description: "The size of the filter reset.",
+    },
+  ]}
+/>
+
+### FilterItem
+
+<PropsTable
+  data={[
+    {
+      name: "type",
+      type: "'radio' | 'checkbox'",
+      default: "'radio'",
+      description: "The type of input element.",
+    },
+    {
+      name: "label",
+      type: "string",
+      description: "Visible label rendered via aria-label (required).",
+    },
+    {
+      name: "color",
+      type: "'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error' | 'ghost' | 'outline'",
+      description: "The color of the filter item.",
+    },
+    {
+      name: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      description: "The size of the filter item.",
+    },
+  ]}
+/>

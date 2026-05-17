@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "./apps/www/src/*"
+      ],
+      "@registry/*": [
+        "./registry/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "strict": true
+  },
+  "include": [
+    "registry/**/*",
+    "apps/**/*",
+    "packages/**/*",
+    "scripts/**/*"
+  ],
+}

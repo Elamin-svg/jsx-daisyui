@@ -1,0 +1,66 @@
+# Accordion
+
+Accordion is used to show and hide content in collapsible sections.
+
+## Default
+
+<Preview name="accordion-default" />
+
+## Arrow icon
+
+<Preview name="accordion-arrow" />
+
+## Plus icon
+
+<Preview name="accordion-plus" />
+
+## Joined
+
+<Preview name="accordion-joined" />
+
+---
+
+## Props
+
+### Accordion
+
+<PropsTable
+  data={[
+    {
+      name: "name",
+      type: "string",
+      description:
+        "Name attribute for all items to group them (allowing only one to be open at a time). Auto-generated if omitted.",
+    },
+    {
+      name: "joined",
+      type: "boolean",
+      description:
+        "Applies 'join' styling to make the accordion items sit flush together.",
+    },
+  ]}
+/>
+
+### Accordion.Item
+
+<PropsTable
+  data={[
+    {
+      name: "icon",
+      type: "'none' | 'arrow' | 'plus'",
+      default: "'none'",
+      description: "Determines the icon variant to display on the trigger.",
+    },
+    {
+      name: "joined",
+      type: "boolean",
+      description:
+        "Applies joined styles to the individual item. Usually set to true if the parent Accordion is joined.",
+    },
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description: "Opens the accordion item by default on initial render.",
+    },
+  ]}
+/>

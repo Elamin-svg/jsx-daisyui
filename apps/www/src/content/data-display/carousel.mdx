@@ -1,0 +1,67 @@
+# Carousel
+
+Carousel is used to display a scrollable list of items with optional navigation.
+
+## Default
+
+<Preview name="carousel-default" />
+
+## With indicators
+
+<Preview name="carousel-indicators" />
+
+## Multiple items
+
+<Preview name="carousel-multi" />
+
+---
+
+## Props
+
+### Carousel.Root
+
+<PropsTable
+  data={[
+    {
+      name: "snap",
+      type: "'start' | 'center' | 'end'",
+      default: "'start'",
+      description: "Snap alignment of items.",
+    },
+    {
+      name: "direction",
+      type: "'horizontal' | 'vertical'",
+      description: "Direction of the carousel scroll.",
+    },
+  ]}
+/>
+
+### Carousel.Item
+
+<PropsTable
+  data={[
+    {
+      name: "full",
+      type: "boolean",
+      description: "Makes the item take 100% of the carousel width.",
+    },
+  ]}
+/>
+
+### Carousel.Indicators
+
+<PropsTable
+  data={[
+    {
+      name: "count",
+      type: "number",
+      description: "Number of indicators to render (required).",
+    },
+    {
+      name: "prefix",
+      type: "string",
+      default: "'item'",
+      description: "ID prefix used to link indicators to carousel items.",
+    },
+  ]}
+/>

@@ -1,0 +1,54 @@
+# Dock
+
+Dock is a bottom navigation bar used to switch between primary sections of an app.
+
+## Default
+
+<Preview name="dock-default" />
+
+## With labels
+
+<Preview name="dock-with-labels" />
+
+---
+
+## Props
+
+### Dock
+
+<PropsTable
+  data={[
+    {
+      name: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      description: "The size of the dock items.",
+    },
+    {
+      name: "value",
+      type: "string",
+      description: "The controlled value of the active dock item.",
+    },
+    {
+      name: "defaultValue",
+      type: "string",
+      description: "The default active dock item.",
+    },
+    {
+      name: "onValueChange",
+      type: "(value: string) => void",
+      description: "Callback when the active item changes.",
+    },
+  ]}
+/>
+
+### Dock.Item
+
+<PropsTable
+  data={[
+    {
+      name: "value",
+      type: "string",
+      description: "The value of this dock item.",
+    },
+  ]}
+/>

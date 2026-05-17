@@ -1,0 +1,66 @@
+# Pagination
+
+Pagination is used to navigate between pages of content.
+
+## Default
+
+<Preview name="pagination-default" />
+
+## With prev and next
+
+<Preview name="pagination-with-prev-next" />
+
+## Sizes
+
+<Preview name="pagination-sizes" />
+
+---
+
+## Props
+
+### Pagination
+
+<PropsTable
+  data={[
+    {
+      name: "value",
+      type: "number",
+      description: "The controlled active page number.",
+    },
+    {
+      name: "defaultValue",
+      type: "number",
+      default: "1",
+      description: "The default active page number.",
+    },
+    {
+      name: "onValueChange",
+      type: "(value: number) => void",
+      description: "Callback when the active page changes.",
+    },
+  ]}
+/>
+
+### Pagination.Item
+
+<PropsTable
+  data={[
+    {
+      name: "value",
+      type: "number | string",
+      description: "The value of this pagination item.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Whether the item is disabled.",
+    },
+    {
+      name: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      default: "'md'",
+      description: "The size of the pagination item.",
+    },
+  ]}
+/>

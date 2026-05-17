@@ -1,0 +1,61 @@
+# Table
+
+Table is used to display structured data in rows and columns.
+
+## Default
+
+<Preview name="table-default" />
+
+## Zebra
+
+<Preview name="table-zebra" />
+
+## Sizes
+
+<Preview name="table-sizes" />
+
+## Bordered
+
+<Preview name="table-bordered" />
+
+---
+
+## Props
+
+### Table
+
+<PropsTable
+  data={[
+    {
+      name: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      default: "'md'",
+      description: "The size of the table.",
+    },
+    {
+      name: "zebra",
+      type: "boolean",
+      description: "Applies alternating background colors to rows.",
+    },
+    {
+      name: "pinRows",
+      type: "boolean",
+      description: "Makes table headers sticky at the top.",
+    },
+    {
+      name: "pinCols",
+      type: "boolean",
+      description: "Makes the first column sticky on the left.",
+    },
+    {
+      name: "bordered",
+      type: "boolean",
+      description: "Adds a border around the table container.",
+    },
+    {
+      name: "wrapperClassName",
+      type: "string",
+      description: "Custom classes applied to the div wrapper.",
+    },
+  ]}
+/>

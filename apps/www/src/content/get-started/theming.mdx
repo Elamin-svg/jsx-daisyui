@@ -1,0 +1,140 @@
+# Theming
+
+daisyUI JSX uses daisyUI v5 under the hood, so every daisyUI theme works out of the box.
+
+---
+
+## Using daisyUI themes
+
+Set the `data-theme` attribute on your root element:
+
+<CodeBlock
+  code={`export default function App() {
+  return (
+    <html data-theme="dark">
+      {/* All components will use the dark theme */}
+    </html>
+  );
+}`}
+  label="app.tsx"
+/>
+
+The full list of built-in themes is at [daisyui.com/docs/themes](https://daisyui.com/docs/themes).
+
+---
+
+## Custom themes
+
+This library ships two custom themes (light and dark). Copy them into your `globals.css`:
+
+<CodeBlock
+  code={`@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: oklch(0.1749 0.0038 164.56);
+  --color-base-200: oklch(0.26 0.005 164.56);
+  --color-base-300: oklch(0.33 0.006 164.56);
+  --color-base-content: oklch(0.9 0.01 164.56);
+  --color-primary: oklch(96% 0.018 272.314);
+  --color-primary-content: #0f1110;
+  --color-secondary: #b14bd7;
+  --color-secondary-content: #f1f4f9;
+  --color-accent: oklch(0.6049 0.215766 282.55);
+  --color-accent-content: #f1f4f9;
+  --color-neutral: #f1f4f9;
+  --color-neutral-content: #0f1110;
+  --color-info: oklch(0.6049 0.215766 257.3);
+  --color-info-content: #f1f4f9;
+  --color-success: oklch(0.6049 0.215766 152.47);
+  --color-success-content: #f1f4f9;
+  --color-warning: oklch(82% 0.189 84.429);
+  --color-warning-content: oklch(41% 0.112 45.904);
+  --color-error: oklch(0.6049 0.215766 33.88);
+  --color-error-content: oklch(100% 0 0);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.28125rem;
+  --size-field: 0.28125rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(99% 0 0);
+  --color-base-200: oklch(96% 0 0);
+  --color-base-300: oklch(92% 0.001 286.375);
+  --color-base-content: oklch(21% 0.006 285.885);
+  --color-primary: oklch(14% 0.005 285.823);
+  --color-primary-content: oklch(96% 0.001 286.375);
+  --color-secondary: oklch(65% 0.241 354.308);
+  --color-secondary-content: oklch(94% 0.028 342.258);
+  --color-accent: oklch(77% 0.152 181.912);
+  --color-accent-content: oklch(38% 0.063 188.416);
+  --color-neutral: oklch(14% 0.005 285.823);
+  --color-neutral-content: oklch(92% 0.004 286.32);
+  --color-info: oklch(74% 0.16 232.661);
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: oklch(76% 0.177 163.223);
+  --color-success-content: oklch(37% 0.077 168.94);
+  --color-warning: oklch(82% 0.189 84.429);
+  --color-warning-content: oklch(41% 0.112 45.904);
+  --color-error: oklch(71% 0.194 13.428);
+  --color-error-content: oklch(27% 0.105 12.094);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.28125rem;
+  --size-field: 0.28125rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}`}
+  label="globals.css"
+/>
+
+---
+
+## Docs site
+
+The docs site previews components in light and dark mode only. When you use the components in your own project, any daisyUI theme will work fine.
+
+---
+
+## Component-level styling
+
+Every component accepts a `className` prop. Pass any Tailwind or daisyUI class directly:
+
+<CodeBlock
+  code={`import { Button } from "@/components/ui/button";
+
+export default function App() {
+  return (
+    <Button className="btn-secondary">
+      Styled Button
+    </Button>
+  );
+}`}
+  label="app.tsx"
+/>
+
+---
+
+## Learn more
+
+<NextLink
+  className="text-base-content/70"
+  href="https://daisyui.com/docs/themes"
+>
+  https://daisyui.com/docs/themes
+</NextLink>
+<NextLink className="text-base-content/70" href="https://daisyui.com">
+  https://daisyui.com
+</NextLink>

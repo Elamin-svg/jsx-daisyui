@@ -1,0 +1,95 @@
+# Label
+
+A set of label components for associating text with form inputs. Each component maps to a single DaisyUI pattern — pick the one that fits your use case.
+
+## Input with Prefix
+
+<Preview name="label-input-prefix" />
+
+## Input with Suffix
+
+<Preview name="label-input-suffix" />
+
+## Input with Prefix and Suffix
+
+<Preview name="label-input-both" />
+
+## Select Field
+
+<Preview name="label-select" />
+## Floating Label
+
+<Preview name="label-floating" />
+
+## Floating Label Sizes
+
+<Preview name="label-floating-sizes" />
+
+## Plain Label
+
+<Preview name="label-plain" />
+
+---
+
+## Props
+
+### InputField
+
+Wraps an `<input>` in a DaisyUI `input` container. Place `Label.Prefix` or `Label.Suffix` as children to render styled spans on either side of the input.
+
+### Prefix
+
+A `<span>` rendered before the input inside an `InputField`.
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description: 'Content shown before the input (e.g. "https://", "$").',
+    },
+  ]}
+/>
+
+### Suffix
+
+A `<span>` rendered after the input inside an `InputField`.
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description: 'Content shown after the input (e.g. ".com", "USD").',
+    },
+  ]}
+/>
+
+### SelectField
+
+Wraps a `<select>` in a DaisyUI `select` container with an optional label span before it.
+
+<PropsTable
+  data={[
+    {
+      name: "label",
+      type: "React.ReactNode",
+      description: 'Text rendered before the select (e.g. "Type", "Currency").',
+    },
+  ]}
+/>
+
+### FloatingLabel
+
+Wraps an `<input>` with a floating label that rises above the field on focus or when filled. Size the input via the `input-xs/sm/md/lg/xl` class on the child.
+
+<PropsTable
+  data={[
+    {
+      name: "label",
+      type: "string",
+      required: true,
+      description: "The text that floats above the input on focus.",
+    },
+  ]}
+/>

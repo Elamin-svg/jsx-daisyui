@@ -1,0 +1,78 @@
+# Chat
+
+Chat is used to display conversation bubbles in a messaging UI.
+
+## Default
+
+<Preview name="chat-default" />
+
+## Colors
+
+<Preview name="chat-colors" />
+
+## With avatar
+
+<Preview name="chat-with-avatar" />
+
+---
+
+## Props
+
+### Chat.Root
+
+<PropsTable
+  data={[
+    {
+      name: "placement",
+      type: "'start' | 'end'",
+      default: "'start'",
+      description: "Alignment of the chat bubble (left or right).",
+    },
+  ]}
+/>
+
+### Chat.Bubble
+
+<PropsTable
+  data={[
+    {
+      name: "color",
+      type: "'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error'",
+      description: "Color variant of the bubble.",
+    },
+  ]}
+/>
+
+### Chat.Image
+
+<PropsTable
+  data={[
+    {
+      name: "src",
+      type: "string",
+      description: "Image source URL.",
+    },
+    {
+      name: "alt",
+      type: "string",
+      description: "Alternative text for the image.",
+    },
+  ]}
+/>
+
+### Chat.Header
+
+<PropsTable
+  data={[
+    {
+      name: "name",
+      type: "string",
+      description: "Sender's name displayed above the bubble.",
+    },
+    {
+      name: "time",
+      type: "string",
+      description: "Timestamp displayed next to the name.",
+    },
+  ]}
+/>

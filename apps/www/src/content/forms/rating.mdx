@@ -1,0 +1,92 @@
+# Rating
+
+A rating input allows users to rate something using stars, hearts, or custom shapes.
+
+## Sizes
+
+<Preview name="rating-sizes" />
+
+## Colors
+
+<Preview name="rating-colors" />
+
+---
+
+## Props
+
+### Rating
+
+<PropsTable
+  data={[
+    {
+      name: "name",
+      type: "string",
+      description: "Unique name used for the underlying radio inputs.",
+    },
+    {
+      name: "value",
+      type: "number",
+      description: "Controlled value (1-based index).",
+    },
+    {
+      name: "defaultValue",
+      type: "number",
+      description: "Default value for uncontrolled usage.",
+    },
+    {
+      name: "onValueChange",
+      type: "(value: number) => void",
+      description: "Called when the user picks a new rating.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: "Disables all items.",
+    },
+    {
+      name: "readOnly",
+      type: "boolean",
+      description: "Renders divs instead of inputs (purely visual).",
+    },
+    {
+      name: "half",
+      type: "boolean",
+      description: "Enables half-star mode.",
+    },
+    {
+      name: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      default: "'md'",
+      description: "The size of the rating items.",
+    },
+  ]}
+/>
+
+### Rating.Item
+
+<PropsTable
+  data={[
+    {
+      name: "itemIndex",
+      type: "number",
+      description: "1-based index of this rating item.",
+    },
+    {
+      name: "mask",
+      type: "'mask-star' | 'mask-star-2' | 'mask-heart' | 'mask-square' | 'mask-circle'",
+      default: "'mask-star-2'",
+      description: "Mask shape class for the rating item shape.",
+    },
+    {
+      name: "color",
+      type: "string",
+      default: "'bg-orange-400'",
+      description: "Tailwind bg-* color class for the item.",
+    },
+    {
+      name: "halfSide",
+      type: "'first' | 'second'",
+      description: "For half-star mode: which half this item represents.",
+    },
+  ]}
+/>

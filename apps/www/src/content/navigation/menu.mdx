@@ -1,0 +1,86 @@
+# Menu
+
+Menu is used to display a list of links vertically or horizontally.
+
+## Default
+
+<Preview name="menu-default" />
+
+## Horizontal
+
+<Preview name="menu-horizontal" />
+
+## Sizes
+
+<Preview name="menu-sizes" />
+
+## With Title
+
+<Preview name="menu-with-title" />
+
+## With Submenu
+
+<Preview name="menu-with-submenu" />
+
+## Active Item
+
+<Preview name="menu-active" />
+
+## Controlled
+
+<Preview name="menu-controlled" />
+
+## Disabled
+
+<Preview name="menu-disabled" />
+
+## Links
+
+<Preview name="menu-links" />
+
+---
+
+## Props
+
+### Menu
+
+<PropsTable
+  data={[
+    {
+      name: "active",
+      type: "string",
+      description:
+        "Value of the currently active item. Matched against Menu.Item value prop to apply menu-active to the child element.",
+    },
+    {
+      name: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      default: "'md'",
+      description: "Size of the menu.",
+    },
+    {
+      name: "direction",
+      type: "'vertical' | 'horizontal'",
+      default: "'vertical'",
+      description: "Direction of the menu.",
+    },
+  ]}
+/>
+
+### Menu.Item
+
+<PropsTable
+  data={[
+    {
+      name: "value",
+      type: "string",
+      description:
+        "Value matched against Menu active prop to mark this item as active. Adds menu-active to the child element.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: "Adds menu-disabled to the <li>.",
+    },
+  ]}
+/>

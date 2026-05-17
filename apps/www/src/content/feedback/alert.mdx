@@ -1,0 +1,43 @@
+# Alert
+
+Alert is used to display important messages or status feedback to the user.
+
+## Default
+
+<Preview name="alert-default" />
+
+## Variants
+
+<Preview name="alert-variants" />
+
+## Styles
+
+<Preview name="alert-styles" />
+
+---
+
+## Props
+
+### Alert
+
+<PropsTable
+  data={[
+    {
+      name: "variant",
+      type: "'default' | 'info' | 'success' | 'warning' | 'error'",
+      description: "The semantic color variant of the alert.",
+    },
+    {
+      name: "style",
+      type: "'solid' | 'soft' | 'outline' | 'dash'",
+      default: "'solid'",
+      description: "The visual style of the alert.",
+    },
+    {
+      name: "orientation",
+      type: "'vertical' | 'horizontal'",
+      description:
+        "Forces a specific orientation. By default, it's responsive.",
+    },
+  ]}
+/>

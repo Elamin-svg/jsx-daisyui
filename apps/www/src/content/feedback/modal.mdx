@@ -1,0 +1,149 @@
+# Modal
+
+A modal overlays the page to focus user attention on a single task, decision, or piece of information. It blocks interaction with the rest of the page until dismissed.
+
+## Default
+
+<Preview name="modal-default" />
+
+## With actions
+
+<Preview name="modal-with-actions" />
+
+## Responsive
+
+<Preview name="modal-responsive" />
+
+## API Reference
+
+### Modal
+
+<PropsTable
+  data={[
+    {
+      name: "placement",
+      type: "'top' | 'middle' | 'bottom' | 'start' | 'end'",
+      default: "'middle'",
+      description: "The placement of the modal on the screen.",
+    },
+    {
+      name: "responsive",
+      type: "boolean",
+      description:
+        "If true, positions the modal at the bottom on mobile screens and in the middle on larger screens.",
+    },
+    {
+      name: "closeOnBackdrop",
+      type: "boolean",
+      default: "true",
+      description: "If true, clicking outside the modal will close it.",
+    },
+  ]}
+/>
+
+### Modal.Box
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description: "The content rendered inside the modal box.",
+    },
+  ]}
+/>
+
+### Modal.Header
+
+<PropsTable
+  data={[
+    {
+      name: "title",
+      type: "string",
+      required: true,
+      description: "The title of the modal.",
+    },
+    {
+      name: "description",
+      type: "string",
+      description: "An optional description rendered below the title.",
+    },
+  ]}
+/>
+
+### Modal.Body
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description: "The main content of the modal.",
+    },
+  ]}
+/>
+
+### Modal.Actions
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      description:
+        "Action buttons rendered at the bottom of the modal, typically confirm and cancel controls.",
+    },
+  ]}
+/>
+
+### Modal.Close
+
+<PropsTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      default: "'✕'",
+      description:
+        "The content of the close button. Defaults to a close symbol.",
+    },
+    {
+      name: "onClick",
+      type: "React.MouseEventHandler<HTMLButtonElement>",
+      description:
+        "Additional click handler called when the close button is clicked.",
+    },
+  ]}
+/>
+
+### useModal
+
+<PropsTable
+  data={[
+    {
+      name: "ref",
+      type: "React.RefObject<HTMLDialogElement>",
+      description: "Ref to attach to the Modal element.",
+    },
+    {
+      name: "isOpen",
+      type: "boolean",
+      description: "The current open state of the modal.",
+    },
+    {
+      name: "open",
+      type: "() => void",
+      description: "Opens the modal.",
+    },
+    {
+      name: "close",
+      type: "() => void",
+      description: "Closes the modal.",
+    },
+    {
+      name: "toggle",
+      type: "() => void",
+      description: "Toggles the modal between open and closed.",
+    },
+  ]}
+/>

@@ -1,0 +1,35 @@
+# Hover Gallery
+
+Hover Gallery displays a stack of images that fan out and expand on hover.
+
+## Default
+
+<Preview name="hover-gallery-default" />
+
+## Wide
+
+<Preview name="hover-gallery-wide" />
+
+---
+
+## Props
+
+### HoverGallery
+
+<PropsTable
+  data={[
+    {
+      name: "images",
+      type: "{ src: string; alt?: string }[]",
+      description:
+        "Array of image objects with src and optional alt text to display in the gallery.",
+    },
+    {
+      name: "maxWidth",
+      type: "'max-w-40' | 'max-w-48' | 'max-w-60' | 'max-w-72' | 'max-w-80' | 'max-w-96'",
+      default: "'max-w-60'",
+      description:
+        "Tailwind max-width class to control the gallery container size.",
+    },
+  ]}
+/>

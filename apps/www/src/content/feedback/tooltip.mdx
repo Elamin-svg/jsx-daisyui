@@ -1,0 +1,52 @@
+# Tooltip
+
+Tooltip displays additional information when hovering over an element.
+
+## Default
+
+<Preview name="tooltip-default" />
+
+## Placements
+
+<Preview name="tooltip-placements" />
+
+## Colors
+
+<Preview name="tooltip-colors" />
+
+---
+
+## Props
+
+### Tooltip
+
+<PropsTable
+  data={[
+    {
+      name: "content",
+      type: "React.ReactNode",
+      description: "The content to display inside the tooltip when triggered.",
+    },
+    {
+      name: "placement",
+      type: "'top' | 'bottom' | 'left' | 'right'",
+      default: "'top'",
+      description: "The placement of the tooltip relative to the trigger.",
+    },
+    {
+      name: "color",
+      type: "'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error'",
+      description: "The color variant of the tooltip.",
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: "Forces the tooltip to stay open.",
+    },
+    {
+      name: "responsive",
+      type: "boolean",
+      description: "If true, tooltip only shows on large screens.",
+    },
+  ]}
+/>

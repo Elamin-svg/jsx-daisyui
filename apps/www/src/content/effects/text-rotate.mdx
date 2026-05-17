@@ -1,0 +1,37 @@
+# Text Rotate
+
+Text Rotate cycles through a list of words or phrases with a smooth animation.
+
+## Default
+
+<Preview name="text-rotate-default" />
+
+## Inline in heading
+
+<Preview name="text-rotate-inline" />
+
+## Centered
+
+<Preview name="text-rotate-centered" />
+
+---
+
+## Props
+
+### TextRotate
+
+<PropsTable
+  data={[
+    {
+      name: "centered",
+      type: "boolean",
+      default: "false",
+      description: "Centers the rotating text within its container.",
+    },
+    {
+      name: "duration",
+      type: "75 | 100 | 150 | 200 | 300 | 500 | 700 | 1000",
+      description: "The duration of the rotation animation in milliseconds.",
+    },
+  ]}
+/>

@@ -1,0 +1,75 @@
+# Speed Dial
+
+Speed Dial is a floating action button that reveals a set of related actions on interaction.
+
+## Default
+
+<Preview name="speed-dial-default" />
+
+## Flower variant
+
+<Preview name="speed-dial-flower" />
+
+---
+
+## Props
+
+### SpeedDialRoot
+
+<PropsTable
+  data={[
+    {
+      name: "variant",
+      type: "'default' | 'flower'",
+      default: "'default'",
+      description: "The visual variant of the speed dial.",
+    },
+    {
+      name: "size",
+      type: "'sm' | 'md' | 'lg'",
+      default: "'lg'",
+      description: "The size of the speed dial components.",
+    },
+  ]}
+/>
+
+### SpeedDialTrigger
+
+<PropsTable
+  data={[
+    {
+      name: "closeIcon",
+      type: "React.ReactNode",
+      description: "The icon to display when the dial is active/open.",
+    },
+    {
+      name: "mainAction",
+      type: "React.ReactNode",
+      description: "The main action icon to display.",
+    },
+  ]}
+/>
+
+### SpeedDialMainTrigger
+
+<PropsTable
+  data={[
+    {
+      name: "closeIcon",
+      type: "React.ReactNode",
+      description: "The icon to display when the dial is active/open.",
+    },
+  ]}
+/>
+
+### SpeedDialAction
+
+<PropsTable
+  data={[
+    {
+      name: "label",
+      type: "string",
+      description: "Optional text label to display next to the action button.",
+    },
+  ]}
+/>

@@ -1,0 +1,98 @@
+# Tabs
+
+Tabs allow users to switch between different views within the same context.
+
+## Default
+
+<Preview name="tabs-default" />
+
+## Border
+
+<Preview name="tabs-border" />
+
+## Box
+
+<Preview name="tabs-box" />
+
+## Lift
+
+<Preview name="tabs-lift" />
+
+---
+
+## Props
+
+### Tabs
+
+<PropsTable
+  data={[
+    {
+      name: "value",
+      type: "string",
+      description: "The controlled active tab value.",
+    },
+    {
+      name: "defaultValue",
+      type: "string",
+      description: "The default active tab value.",
+    },
+    {
+      name: "onValueChange",
+      type: "(value: string) => void",
+      description: "Callback when the active tab changes.",
+    },
+    {
+      name: "variant",
+      type: "'default' | 'border' | 'lift' | 'box'",
+      default: "'default'",
+      description: "The visual variant of the tabs.",
+    },
+    {
+      name: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      default: "'md'",
+      description: "The size of the tabs.",
+    },
+  ]}
+/>
+
+### Tabs.List
+
+<PropsTable
+  data={[
+    {
+      name: "variant",
+      type: "'default' | 'border' | 'lift' | 'box'",
+      description: "Overrides the tabs variant.",
+    },
+    {
+      name: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      description: "Overrides the tabs size.",
+    },
+  ]}
+/>
+
+### Tabs.Trigger
+
+<PropsTable
+  data={[
+    {
+      name: "value",
+      type: "string",
+      description: "The value of this tab trigger.",
+    },
+  ]}
+/>
+
+### Tabs.Content
+
+<PropsTable
+  data={[
+    {
+      name: "value",
+      type: "string",
+      description: "The value of the tab to display this content for.",
+    },
+  ]}
+/>

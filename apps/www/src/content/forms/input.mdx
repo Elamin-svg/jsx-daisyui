@@ -1,0 +1,75 @@
+# Input
+
+Input is a text field that allows users to enter data.
+
+## Default
+
+<Preview name="input-default" />
+
+## Sizes
+
+<Preview name="input-sizes" />
+
+## Colors
+
+<Preview name="input-colors" />
+
+## Ghost
+
+<Preview name="input-ghost" />
+
+## With fieldset and hint
+
+<Preview name="input-fieldset" />
+
+## With prefix and suffix
+
+<Preview name="input-wrapper" />
+
+## Floating label
+
+<Preview name="input-floating-label" />
+
+## Disabled
+
+<Preview name="input-disabled" />
+
+---
+
+## Props
+
+### Input
+
+<PropsTable
+  data={[
+    {
+      name: "color",
+      type: "'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error'",
+      description: "The color variant of the input.",
+    },
+    {
+      name: "size",
+      type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      default: "'md'",
+      description: "The size of the input.",
+    },
+    {
+      name: "ghost",
+      type: "boolean",
+      default: "false",
+      description: "Applies ghost styling to the input.",
+    },
+    {
+      name: "validator",
+      type: "boolean",
+      default: "false",
+      description: "Enables DaisyUI CSS validation styling.",
+    },
+    {
+      name: "validatorHint",
+      type: "string",
+      description: "Hint text to display for validation feedback.",
+    },
+  ]}
+/>
+

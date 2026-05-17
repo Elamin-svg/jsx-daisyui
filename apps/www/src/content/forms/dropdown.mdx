@@ -1,0 +1,69 @@
+# Dropdown
+
+Dropdown is used to show a list of options when clicking on a trigger element.
+
+## Default
+
+<Preview name="dropdown-default" />
+
+## Positions
+
+<Preview name="dropdown-positions" />
+
+## Alignment
+
+<Preview name="dropdown-align" />
+
+## Hover
+
+<Preview name="dropdown-hover" />
+
+---
+
+## Props
+
+### Dropdown
+
+<PropsTable
+  data={[
+    {
+      name: "position",
+      type: "'top' | 'bottom' | 'left' | 'right'",
+      description: "The opening position of the dropdown menu.",
+    },
+    {
+      name: "align",
+      type: "'start' | 'center' | 'end'",
+      description: "The alignment of the dropdown menu.",
+    },
+    {
+      name: "hover",
+      type: "boolean",
+      description: "Opens the dropdown on hover.",
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: "Forces the dropdown to stay open.",
+    },
+    {
+      name: "close",
+      type: "boolean",
+      description: "Forces the dropdown to close.",
+    },
+  ]}
+/>
+
+### Dropdown.Item
+
+<PropsTable
+  data={[
+    {
+      name: "anchor",
+      type: "boolean",
+      default: "true",
+      description:
+        "Determines if the item should be rendered inside an anchor tag (<a>). If false, it renders its children directly.",
+    },
+  ]}
+/>
