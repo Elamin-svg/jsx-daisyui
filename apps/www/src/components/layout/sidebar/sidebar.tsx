@@ -2,10 +2,11 @@
 
 import { docsByGroup } from "@/lib/docs";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
   const isActive = (slug: string) => pathname.endsWith(slug);
 
   return (
@@ -21,6 +22,8 @@ export default function Sidebar() {
                 <li key={doc.slug} className="w-full">
                   <Link
                     href={doc.slug}
+                    prefetch={false}
+                    onMouseEnter={() => router.prefetch(doc.slug)}
                     className={`w-full text-base ${isActive(doc.slug) ? "bg-primary text-primary-content" : ""}`}
                   >
                     {doc.title}
