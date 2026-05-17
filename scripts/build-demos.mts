@@ -26,11 +26,7 @@ interface DemoEntry {
   name: string;
   exportName: string;
   importPath: string;
-  source: string;
-}
-
-function toDisplaySource(source: string): string {
-  return source.replace(/@registry\/components\/react\/[^/]+\//g, "@/components/ui/");
+  filePath: string;
 }
 
 function collectDemos(dir: string, relPath = ""): DemoEntry[] {
@@ -44,9 +40,8 @@ function collectDemos(dir: string, relPath = ""): DemoEntry[] {
       const slug       = item.replace(/\.tsx$/, "");
       const exportName = toPascalCase(slug);
       const importPath = `@registry/demos/react/${relPath}/${slug}`;
-      const raw        = fs.readFileSync(full, "utf-8");
-      const source     = toDisplaySource(raw);
-      entries.push({ name: slug, exportName, importPath, source });
+      const filePath   = `${relPath}/${slug}`;
+      entries.push({ name: slug, exportName, importPath, filePath });
     }
   }
   return entries;
@@ -63,23 +58,19 @@ const lines: string[] = [
   `export type DemoEntry = {`,
   `  name: string;`,
   `  component: React.LazyExoticComponent<() => React.ReactElement>;`,
-  `  source: string;`,
+  `  filePath: string;`,
   `};`,
   ``,
   `export const registry: Record<string, DemoEntry> = {`,
 ];
 
 for (const demo of demos) {
-  const escaped = demo.source
-    .replace(/\\/g, "\\\\")
-    .replace(/`/g, "\\`")
-    .replace(/\$\{/g, "\\${");
   lines.push(`  "${demo.name}": {`);
   lines.push(`    name: "${demo.name}",`);
   lines.push(`    component: React.lazy(() =>`);
   lines.push(`      import("${demo.importPath}").then((m) => ({ default: m.${demo.exportName} }))`);
   lines.push(`    ),`);
-  lines.push(`    source: \`${escaped}\`,`);
+  lines.push(`    filePath: "${demo.filePath}",`);
   lines.push(`  },`);
 }
 

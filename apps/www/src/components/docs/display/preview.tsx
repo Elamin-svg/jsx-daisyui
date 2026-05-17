@@ -37,14 +37,16 @@ type Props = {
 };
 
 function PreviewComponent({ name, children, code, label, className }: Props) {
-  //safe indexed access to avoid TS error
   const item = name ? (registry as Record<string, any>)[name] : null;
   const Component = item?.component;
-  const finalCode = code || item?.source;
   const finalLabel = label || name || "";
 
   const [tab, setTab] = useState<"preview" | "code">("preview");
   const [highlighted, setHighlighted] = useState("");
+  const [loadedSource, setLoadedSource] = useState<string | null>(null);
+  const [sourceLoading, setSourceLoading] = useState(false);
+
+  const finalCode = code ?? loadedSource;
 
   const mountedRef = useRef(true);
   useEffect(() => {
@@ -78,6 +80,19 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
     return () => observer.disconnect();
   }, [finalCode, highlight]);
 
+  const handleCodeTab = useCallback(async () => {
+    if (!loadedSource && !code && name) {
+      setSourceLoading(true);
+      try {
+        const res = await fetch(`/api/demo-source/${name}`);
+        if (res.ok) setLoadedSource(await res.text());
+      } finally {
+        setSourceLoading(false);
+      }
+    }
+    setTab("code");
+  }, [loadedSource, code, name]);
+
   if (name && !item) {
     return (
       <div className="my-6 p-4 border rounded-box text-error">
@@ -85,6 +100,8 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
       </div>
     );
   }
+
+  const hasCode = !!(code || name);
 
   return (
     <>
@@ -95,7 +112,7 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
           <span className="text-sm font-mono text-base-content/50">
             {finalLabel}
           </span>
-          {finalCode && (
+          {hasCode && (
             <div className="tabs tabs-boxed tabs-sm">
               <button
                 className={`tab ${tab === "preview" ? "tab-active" : ""}`}
@@ -105,7 +122,7 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
               </button>
               <button
                 className={`tab ${tab === "code" ? "tab-active" : ""}`}
-                onClick={() => setTab("code")}
+                onClick={handleCodeTab}
               >
                 Code
               </button>
@@ -124,10 +141,15 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
               )}
             </div>
           ) : (
-            <div
-              className="text-sm     min-w-xs [&>pre]:bg-base-100! [&>pre]:p-4 [&>pre]:m-0"
-              dangerouslySetInnerHTML={{ __html: highlighted }}
-            />
+            <div className="text-sm min-w-xs [&>pre]:bg-base-100! [&>pre]:p-4 [&>pre]:m-0">
+              {sourceLoading ? (
+                <div className="flex items-center justify-center min-h-40">
+                  <Loader variant="ring" />
+                </div>
+              ) : (
+                <div dangerouslySetInnerHTML={{ __html: highlighted }} />
+              )}
+            </div>
           )}
         </div>
       </div>

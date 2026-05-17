@@ -4,6 +4,10 @@ import {
   getLastDocsByGroupSlug,
   getNextDocsByGroupSlug,
 } from "@/lib/docs";
+
+export function generateStaticParams() {
+  return docs.map((d) => ({ id: d.slug.replace("/docs/", "") }));
+}
 import { ScrollToTop } from "@/components/ui";
 import Button from "@registry/components/react/forms/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";

@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
   outputFileTracingIncludes: {
     "/api/registry/[name]": ["../../registry/components/react/**/*.tsx"],
+    "/api/demo-source/[name]": ["../../registry/demos/react/**/*.tsx"],
     "/docs/[id]": ["../../registry/components/react/**/*.tsx"],
   },
   webpack: (config) => {

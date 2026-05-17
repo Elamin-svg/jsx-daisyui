@@ -26,13 +26,6 @@ function toPascalCase(str) {
     .join("");
 }
 
-function toDisplaySource(source) {
-  return source.replace(
-    /@registry\/components\/react\/[^/]+\//g,
-    "@/components/ui/",
-  );
-}
-
 // Collect all demo files
 
 function collectDemos(dir, relPath = "") {
@@ -46,9 +39,8 @@ function collectDemos(dir, relPath = "") {
       const slug = item.replace(/\.tsx$/, "");
       const exportName = toPascalCase(slug);
       const importPath = `@registry/demos/react/${relPath}/${slug}`;
-      const raw = fs.readFileSync(full, "utf-8");
-      const source = toDisplaySource(raw);
-      entries.push({ name: slug, exportName, importPath, source });
+      const filePath = `${relPath}/${slug}`;
+      entries.push({ name: slug, exportName, importPath, filePath });
     }
   }
   return entries;
@@ -68,11 +60,6 @@ const lines = [
 ];
 
 for (const demo of demos) {
-  const escaped = demo.source
-    .replace(/\\/g, "\\\\")
-    .replace(/`/g, "\\`")
-    .replace(/\$\{/g, "\\${");
-
   lines.push(`  "${demo.name}": {`);
   lines.push(`    name: "${demo.name}",`);
   lines.push(`    component: React.lazy(() =>`);
@@ -80,7 +67,7 @@ for (const demo of demos) {
     `      import("${demo.importPath}").then((m) => ({ default: m.${demo.exportName} }))`,
   );
   lines.push(`    ),`);
-  lines.push(`    source: \`${escaped}\`,`);
+  lines.push(`    filePath: "${demo.filePath}",`);
   lines.push(`  },`);
 }
 
