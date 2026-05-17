@@ -40,7 +40,6 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
   //safe indexed access to avoid TS error
   const item = name ? (registry as Record<string, any>)[name] : null;
   const Component = item?.component;
-  const finalCode = code || item?.source;
   const finalLabel = label || name || "";
 
   const [tab, setTab] = useState<"preview" | "code">("preview");
@@ -55,17 +54,17 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
   }, []);
 
   const highlight = useCallback(async () => {
-    if (!finalCode) return;
-    const html = await getHighlighted(finalCode, getTheme());
+    if (!code) return;
+    const html = await getHighlighted(code, getTheme());
     if (mountedRef.current) setHighlighted(html);
-  }, [finalCode]);
+  }, [code]);
 
   useEffect(() => {
     highlight();
   }, [highlight]);
 
   useEffect(() => {
-    if (!finalCode) return;
+    if (!code) return;
     const observer = new MutationObserver((mutations) => {
       for (const m of mutations) {
         if (m.attributeName === "data-theme") {
@@ -76,7 +75,7 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
     });
     observer.observe(document.documentElement, { attributes: true });
     return () => observer.disconnect();
-  }, [finalCode, highlight]);
+  }, [code, highlight]);
 
   if (name && !item) {
     return (
@@ -95,7 +94,7 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
           <span className="text-sm font-mono text-base-content/50">
             {finalLabel}
           </span>
-          {finalCode && (
+          {code && (
             <div className="tabs tabs-boxed tabs-sm">
               <button
                 className={`tab ${tab === "preview" ? "tab-active" : ""}`}

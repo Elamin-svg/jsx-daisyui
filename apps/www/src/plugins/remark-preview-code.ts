@@ -19,6 +19,7 @@ export function remarkPreviewCode() {
       const openEnd = raw.indexOf(">") + 1;
       const closeStart = raw.lastIndexOf("</Preview>");
       const innerCode = raw.slice(openEnd, closeStart).trim();
+      if (!innerCode) return;
 
       node.attributes.push({
         type: "mdxJsxAttribute",

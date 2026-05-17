@@ -8,14 +8,15 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const DEMOS_ROOT = path.join(ROOT, "registry/demos/react");
-const OUT_FILE = path.join(ROOT, "registry/previews/react/__index__.tsx");
+const OUT_INDEX = path.join(ROOT, "registry/previews/react/__index__.tsx");
+const OUT_SOURCES = path.join(ROOT, "registry/previews/react/__sources__.ts");
 
 function toPascalCase(str) {
   return str
     .split("-")
     .map((part) =>
       part
-        .split(/(?<=\d)(?=[a-zA-Z])|(?<=[a-zA-Z])(?=\d)/g) // trennt 3d sauber
+        .split(/(?<=\d)(?=[a-zA-Z])|(?<=[a-zA-Z])(?=\d)/g)
         .map((word) =>
           word.toUpperCase() === word
             ? word
@@ -32,8 +33,6 @@ function toDisplaySource(source) {
     "@/components/ui/",
   );
 }
-
-// Collect all demo files
 
 function collectDemos(dir, relPath = "") {
   const entries = [];
@@ -54,11 +53,11 @@ function collectDemos(dir, relPath = "") {
   return entries;
 }
 
-// Generate __index__.tsx
-
 const demos = collectDemos(DEMOS_ROOT);
 
-const lines = [
+// ── __index__.tsx — components only, no source strings ──────────────────────
+
+const indexLines = [
   `// AUTO-GENERATED — do not edit by hand.`,
   `// Run: node scripts/build-demos.mjs`,
   ``,
@@ -68,29 +67,49 @@ const lines = [
 ];
 
 for (const demo of demos) {
+  indexLines.push(`  "${demo.name}": {`);
+  indexLines.push(`    name: "${demo.name}",`);
+  indexLines.push(`    component: React.lazy(() =>`);
+  indexLines.push(
+    `      import("${demo.importPath}").then((m) => ({ default: m.${demo.exportName} }))`,
+  );
+  indexLines.push(`    ),`);
+  indexLines.push(`  },`);
+}
+
+indexLines.push(`};`);
+indexLines.push(``);
+
+// ── __sources__.ts — source strings only, never imported by client code ──────
+
+const sourcesLines = [
+  `// AUTO-GENERATED — do not edit by hand.`,
+  `// Run: node scripts/build-demos.mjs`,
+  `// SERVER-ONLY — do not import this file from any client component.`,
+  ``,
+  `export const sources: Record<string, string> = {`,
+];
+
+for (const demo of demos) {
   const escaped = demo.source
     .replace(/\\/g, "\\\\")
     .replace(/`/g, "\\`")
     .replace(/\$\{/g, "\\${");
-
-  lines.push(`  "${demo.name}": {`);
-  lines.push(`    name: "${demo.name}",`);
-  lines.push(`    component: React.lazy(() =>`);
-  lines.push(
-    `      import("${demo.importPath}").then((m) => ({ default: m.${demo.exportName} }))`,
-  );
-  lines.push(`    ),`);
-  lines.push(`    source: \`${escaped}\`,`);
-  lines.push(`  },`);
+  sourcesLines.push(`  "${demo.name}": \`${escaped}\`,`);
 }
 
-lines.push(`};`);
-lines.push(``);
+sourcesLines.push(`};`);
+sourcesLines.push(``);
 
-fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
-fs.writeFileSync(OUT_FILE, lines.join("\n"), "utf-8");
+// ── Write both files ─────────────────────────────────────────────────────────
+
+fs.mkdirSync(path.dirname(OUT_INDEX), { recursive: true });
+fs.writeFileSync(OUT_INDEX, indexLines.join("\n"), "utf-8");
+fs.writeFileSync(OUT_SOURCES, sourcesLines.join("\n"), "utf-8");
 
 console.log(
-  `✓  Generated registry/previews/react/__index__.tsx (${demos.length} demos)`,
+  `✓  Generated registry/previews/react/__index__.tsx  (${demos.length} demos)`,
 );
-demos.forEach((d) => console.log(`   • ${d.name}`));
+console.log(
+  `✓  Generated registry/previews/react/__sources__.ts (${demos.length} demos)`,
+);
