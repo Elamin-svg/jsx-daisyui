@@ -1,7 +1,7 @@
 export default function GithubIcon() {
   return (
     <a
-      href="https://github.com/elamins-svg/jsx-daisyui"
+      href="https://github.com/Elamin-svg/daisyui-jsx"
       target="_blank"
       rel="noreferrer"
       className="btn btn-ghost btn-sm btn-square"
