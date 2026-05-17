@@ -114,7 +114,7 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
         </div>
         <div className="overflow-x-auto">
           {tab === "preview" ? (
-            <div className="p-4 overflow-x-auto  min-w-md  min-h-80 max-h-140 h-fit flex flex-wrap items-center justify-center gap-4 bg-base-100">
+            <div className="p-4 overflow-x-auto  min-w-xs  min-h-80 max-h-140 h-fit flex flex-wrap items-center justify-center gap-4 bg-base-100">
               {Component ? (
                 <Suspense fallback={<Loader variant="ring" />}>
                   <Component />
@@ -125,7 +125,7 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
             </div>
           ) : (
             <div
-              className="text-sm     min-w-md [&>pre]:bg-base-100! [&>pre]:p-4 [&>pre]:m-0"
+              className="text-sm     min-w-xs [&>pre]:bg-base-100! [&>pre]:p-4 [&>pre]:m-0"
               dangerouslySetInnerHTML={{ __html: highlighted }}
             />
           )}

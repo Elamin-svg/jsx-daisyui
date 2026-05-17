@@ -1,8 +1,8 @@
-﻿import type { Metadata } from "next";
+﻿import { Footer, Navbar } from "@/components/layout";
+import { Toaster } from "@registry/components/react/feedback/toast";
+import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
-import { Footer, Navbar } from "@/components/layout";
-import { Toaster } from "@registry/components/react/feedback/toast";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -22,7 +22,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning className={`${outfit.className} h-full antialiased`}>
+    <html
+      lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
+      className={`${outfit.className} h-full antialiased`}
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -31,7 +36,7 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning className="min-h-screen flex flex-col">
-        <NextTopLoader color="var(--color-primary)" />
+        <NextTopLoader showSpinner={false} color="var(--color-primary)" />
         <Navbar />
         <div className="pt-16">{children}</div>
         <Footer />

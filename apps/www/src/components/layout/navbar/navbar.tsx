@@ -13,7 +13,7 @@ import ThemeController from "../../ui/theme-controller";
 
 export default function Navbar() {
   return (
-    <header className="border-b border-base-200 fixed top-0 z-10 left-0 w-screen bg-base-100 md:px-4">
+    <header className="border-b border-base-200 fixed top-0 z-9999 left-0 w-screen bg-base-100 md:px-4">
       <div className="navbar max-w-7xl container mx-auto bg-base-100">
         <div className="navbar-start md:hidden">
           <DrawerNavbar />

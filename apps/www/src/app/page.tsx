@@ -9,7 +9,7 @@ import ReactLogo from "../../public/logos/react.svg";
 
 export default function Home() {
   return (
-    <main className="min-h-[calc(100vh-80px)] bg-base-100 flex flex-col container mx-auto py-24 pt-30">
+    <main className="min-h-[calc(100vh-80px)] bg-base-100 flex flex-col container mx-auto pt-20 md:pt-24  pb-6 ">
       <section className="flex items-center justify-center px-6 text-left md:text-center gap-5">
         <div className="flex flex-col justify-center items-center">
           <div className="flex items-center gap-8 mb-10 mr-auto md:mx-auto">
