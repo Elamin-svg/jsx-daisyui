@@ -37,16 +37,13 @@ type Props = {
 };
 
 function PreviewComponent({ name, children, code, label, className }: Props) {
+  //safe indexed access to avoid TS error
   const item = name ? (registry as Record<string, any>)[name] : null;
   const Component = item?.component;
   const finalLabel = label || name || "";
 
   const [tab, setTab] = useState<"preview" | "code">("preview");
   const [highlighted, setHighlighted] = useState("");
-  const [loadedSource, setLoadedSource] = useState<string | null>(null);
-  const [sourceLoading, setSourceLoading] = useState(false);
-
-  const finalCode = code ?? loadedSource;
 
   const mountedRef = useRef(true);
   useEffect(() => {
@@ -57,17 +54,17 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
   }, []);
 
   const highlight = useCallback(async () => {
-    if (!finalCode) return;
-    const html = await getHighlighted(finalCode, getTheme());
+    if (!code) return;
+    const html = await getHighlighted(code, getTheme());
     if (mountedRef.current) setHighlighted(html);
-  }, [finalCode]);
+  }, [code]);
 
   useEffect(() => {
     highlight();
   }, [highlight]);
 
   useEffect(() => {
-    if (!finalCode) return;
+    if (!code) return;
     const observer = new MutationObserver((mutations) => {
       for (const m of mutations) {
         if (m.attributeName === "data-theme") {
@@ -78,20 +75,7 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
     });
     observer.observe(document.documentElement, { attributes: true });
     return () => observer.disconnect();
-  }, [finalCode, highlight]);
-
-  const handleCodeTab = useCallback(async () => {
-    if (!loadedSource && !code && name) {
-      setSourceLoading(true);
-      try {
-        const res = await fetch(`/api/demo-source/${name}`);
-        if (res.ok) setLoadedSource(await res.text());
-      } finally {
-        setSourceLoading(false);
-      }
-    }
-    setTab("code");
-  }, [loadedSource, code, name]);
+  }, [code, highlight]);
 
   if (name && !item) {
     return (
@@ -100,8 +84,6 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
       </div>
     );
   }
-
-  const hasCode = !!(code || name);
 
   return (
     <>
@@ -112,7 +94,7 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
           <span className="text-sm font-mono text-base-content/50">
             {finalLabel}
           </span>
-          {hasCode && (
+          {code && (
             <div className="tabs tabs-boxed tabs-sm">
               <button
                 className={`tab ${tab === "preview" ? "tab-active" : ""}`}
@@ -122,7 +104,7 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
               </button>
               <button
                 className={`tab ${tab === "code" ? "tab-active" : ""}`}
-                onClick={handleCodeTab}
+                onClick={() => setTab("code")}
               >
                 Code
               </button>
@@ -141,15 +123,10 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
               )}
             </div>
           ) : (
-            <div className="text-sm min-w-xs [&>pre]:bg-base-100! [&>pre]:p-4 [&>pre]:m-0">
-              {sourceLoading ? (
-                <div className="flex items-center justify-center min-h-40">
-                  <Loader variant="ring" />
-                </div>
-              ) : (
-                <div dangerouslySetInnerHTML={{ __html: highlighted }} />
-              )}
-            </div>
+            <div
+              className="text-sm     min-w-xs [&>pre]:bg-base-100! [&>pre]:p-4 [&>pre]:m-0"
+              dangerouslySetInnerHTML={{ __html: highlighted }}
+            />
           )}
         </div>
       </div>
