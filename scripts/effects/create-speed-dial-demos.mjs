@@ -46,7 +46,7 @@ const TrashIcon = () => (
 export function SpeedDialDefault() {
   return (
     <div className="flex    items-center justify-center h-48">
-      <SpeedDial className="absolute">
+      <SpeedDial className="absolute z-0">
         <SpeedDial.Trigger><PlusIcon /></SpeedDial.Trigger>
         <SpeedDial.Action label="Edit"><PenIcon /></SpeedDial.Action>
         <SpeedDial.Action label="Share"><ShareIcon /></SpeedDial.Action>
@@ -90,7 +90,7 @@ const CogIcon = () => (
 export function SpeedDialFlower() {
   return (
     <div className="flex items-center justify-center h-48">
-      <SpeedDial variant="flower" className="absolute">
+      <SpeedDial variant="flower" className="absolute z-0">
         <SpeedDial.MainTrigger><PlusIcon /></SpeedDial.MainTrigger>
         <SpeedDial.Action><HomeIcon /></SpeedDial.Action>
         <SpeedDial.Action><BellIcon /></SpeedDial.Action>

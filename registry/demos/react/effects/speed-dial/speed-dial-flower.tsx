@@ -28,7 +28,7 @@ const CogIcon = () => (
 export function SpeedDialFlower() {
   return (
     <div className="flex items-center justify-center h-48">
-      <SpeedDial variant="flower" className="absolute">
+      <SpeedDial variant="flower" className="absolute z-0">
         <SpeedDial.MainTrigger><PlusIcon /></SpeedDial.MainTrigger>
         <SpeedDial.Action><HomeIcon /></SpeedDial.Action>
         <SpeedDial.Action><BellIcon /></SpeedDial.Action>

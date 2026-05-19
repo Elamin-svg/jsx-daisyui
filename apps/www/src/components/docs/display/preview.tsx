@@ -88,7 +88,7 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
   return (
     <>
       <div
-        className={`mt-3 mb-10 w-full rounded-box h-fit     border relative shadow-xs max-w-6xl border-base-300 ${className ?? ""}`}
+        className={`mt-3 mb-10 w-full rounded-box h-fit     border relative shadow-xs  max-w-6xl border-base-300 ${className ?? ""}`}
       >
         <div className="flex items-center justify-between px-4 py-2 bg-base-200 border-b border-base-300">
           <span className="text-sm font-mono text-base-content/50">

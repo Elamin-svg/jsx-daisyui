@@ -1484,7 +1484,7 @@ const TrashIcon = () => (
 export function SpeedDialDefault() {
   return (
     <div className="flex    items-center justify-center h-48">
-      <SpeedDial className="absolute">
+      <SpeedDial className="absolute z-0">
         <SpeedDial.Trigger><PlusIcon /></SpeedDial.Trigger>
         <SpeedDial.Action label="Edit"><PenIcon /></SpeedDial.Action>
         <SpeedDial.Action label="Share"><ShareIcon /></SpeedDial.Action>
@@ -1524,7 +1524,7 @@ const CogIcon = () => (
 export function SpeedDialFlower() {
   return (
     <div className="flex items-center justify-center h-48">
-      <SpeedDial variant="flower" className="absolute">
+      <SpeedDial variant="flower" className="absolute z-0">
         <SpeedDial.MainTrigger><PlusIcon /></SpeedDial.MainTrigger>
         <SpeedDial.Action><HomeIcon /></SpeedDial.Action>
         <SpeedDial.Action><BellIcon /></SpeedDial.Action>
@@ -3287,15 +3287,12 @@ export function RatingHidden() {
   );
 }
 `,
-  "rating-masks": `import {
-  Rating,
-  type RatingMask,
-} from "@/components/ui/rating";
+  "rating-masks": `import { Rating, type RatingMask } from "@/components/ui/rating";
 
 const MASK_DEMOS: { mask: RatingMask; color: string; label: string }[] = [
-  { mask: "mask-star", color: "bg-yellow-400", label: "Star" },
+  { mask: "mask-star",   color: "bg-yellow-400", label: "Star"   },
   { mask: "mask-star-2", color: "bg-orange-400", label: "Star 2" },
-  { mask: "mask-heart", color: "bg-red-400", label: "Heart" },
+  { mask: "mask-heart",  color: "bg-red-400",    label: "Heart"  },
 ];
 
 export function RatingMasks() {

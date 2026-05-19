@@ -27,7 +27,7 @@ const TrashIcon = () => (
 export function SpeedDialDefault() {
   return (
     <div className="flex    items-center justify-center h-48">
-      <SpeedDial className="absolute">
+      <SpeedDial className="absolute z-0">
         <SpeedDial.Trigger><PlusIcon /></SpeedDial.Trigger>
         <SpeedDial.Action label="Edit"><PenIcon /></SpeedDial.Action>
         <SpeedDial.Action label="Share"><ShareIcon /></SpeedDial.Action>
