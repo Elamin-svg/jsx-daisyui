@@ -17,7 +17,7 @@ const accordionVariants = tv({
       plus: { item: "collapse-plus" },
     },
     joined: {
-      true: { root: "join join-vertical bg-base-100", item: "join-item" },
+      true: { root: "join join-vertical bg-base-100", item: "join-item mt-0" },
     },
   },
   defaultVariants: {
@@ -28,7 +28,9 @@ const accordionVariants = tv({
 type AccordionVariants = VariantProps<typeof accordionVariants>;
 
 type AccordionContextValue = { name: string };
-const AccordionContext = React.createContext<AccordionContextValue>({ name: "" });
+const AccordionContext = React.createContext<AccordionContextValue>({
+  name: "",
+});
 const useAccordion = () => React.useContext(AccordionContext);
 
 export type AccordionProps = Omit<React.ComponentProps<"div">, "color"> &
@@ -37,64 +39,70 @@ export type AccordionProps = Omit<React.ComponentProps<"div">, "color"> &
   };
 
 const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
-  ({ name, joined, className, children, ...props }, ref) => {
+  ({ name, joined, icon, className, children, ...props }, ref) => {
     const { root } = accordionVariants({ joined });
     const id = React.useId();
     const resolvedName = name ?? id;
     return (
       <AccordionContext.Provider value={{ name: resolvedName }}>
         <div ref={ref} className={root({ className })} {...props}>
+          {/* Propagate icon/joined down via context if needed, or just pass through children */}
           {children}
         </div>
       </AccordionContext.Provider>
     );
-  }
+  },
 );
 
 Accordion.displayName = "Accordion";
 
-export type AccordionItemProps = Omit<React.ComponentProps<"details">, "color"> &
+export type AccordionItemProps = Omit<React.ComponentProps<"div">, "color"> &
   AccordionVariants & {
     defaultOpen?: boolean;
   };
 
-const AccordionItem = React.forwardRef<HTMLDetailsElement, AccordionItemProps>(
-  ({ icon, joined, defaultOpen, className, ...props }, ref) => {
+const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
+  ({ icon, joined, defaultOpen, className, children, ...props }, ref) => {
     const { name } = useAccordion();
     const { item } = accordionVariants({ icon, joined });
     return (
-      <details
-        ref={ref}
-        name={name}
-        className={item({ className })}
-        open={defaultOpen}
-        {...props}
-      />
+      <div ref={ref} className={item({ className })} {...props}>
+        <input
+          type="radio"
+          name={name}
+          autoComplete="off"
+          defaultChecked={defaultOpen}
+          className="hidden"
+        />
+        {children}
+      </div>
     );
-  }
+  },
 );
 
 AccordionItem.displayName = "AccordionItem";
 
-export type AccordionTriggerProps = Omit<React.ComponentProps<"summary">, "color">;
+export type AccordionTriggerProps = Omit<React.ComponentProps<"div">, "color">;
 
-const AccordionTrigger = React.forwardRef<HTMLElement, AccordionTriggerProps>(
-  ({ className, ...props }, ref) => {
-    const { title } = accordionVariants();
-    return <summary ref={ref} className={title({ className })} {...props} />;
-  }
-);
+const AccordionTrigger = React.forwardRef<
+  HTMLDivElement,
+  AccordionTriggerProps
+>(({ className, ...props }, ref) => {
+  const { title } = accordionVariants();
+  return <div ref={ref} className={title({ className })} {...props} />;
+});
 
 AccordionTrigger.displayName = "AccordionTrigger";
 
 export type AccordionContentProps = Omit<React.ComponentProps<"div">, "color">;
 
-const AccordionContent = React.forwardRef<HTMLDivElement, AccordionContentProps>(
-  ({ className, ...props }, ref) => {
-    const { content } = accordionVariants();
-    return <div ref={ref} className={content({ className })} {...props} />;
-  }
-);
+const AccordionContent = React.forwardRef<
+  HTMLDivElement,
+  AccordionContentProps
+>(({ className, ...props }, ref) => {
+  const { content } = accordionVariants();
+  return <div ref={ref} className={content({ className })} {...props} />;
+});
 
 AccordionContent.displayName = "AccordionContent";
 
