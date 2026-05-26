@@ -39,7 +39,6 @@ const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
           name={name}
           autoComplete="off"
           defaultChecked={defaultChecked}
-          className="hidden"
         />
         {children}
       </div>

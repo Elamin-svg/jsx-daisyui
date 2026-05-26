@@ -7,16 +7,16 @@ export const sources: Record<string, string> = {
 
 export function AccordionArrow() {
   return (
-    <Accordion icon="arrow" className="w-80">
-      <Accordion.Item defaultOpen>
-        <Accordion.Trigger>Click to open</Accordion.Trigger>
+    <div className="w-80 flex flex-col gap-2">
+      <Accordion name="arrow" icon="arrow" defaultChecked>
+        <Accordion.Title>Click to open</Accordion.Title>
         <Accordion.Content>This accordion uses the arrow icon variant.</Accordion.Content>
-      </Accordion.Item>
-      <Accordion.Item>
-        <Accordion.Trigger>Another item</Accordion.Trigger>
+      </Accordion>
+      <Accordion name="arrow" icon="arrow">
+        <Accordion.Title>Another item</Accordion.Title>
         <Accordion.Content>Arrow collapses show a chevron that rotates on open.</Accordion.Content>
-      </Accordion.Item>
-    </Accordion>
+      </Accordion>
+    </div>
   );
 }
 `,
@@ -24,26 +24,26 @@ export function AccordionArrow() {
 
 export function AccordionDefault() {
   return (
-    <Accordion className="w-80">
-      <Accordion.Item defaultOpen>
-        <Accordion.Trigger>What is daisyUI?</Accordion.Trigger>
+    <div className="w-80 flex flex-col gap-2">
+      <Accordion name="default" defaultChecked>
+        <Accordion.Title>What is daisyUI?</Accordion.Title>
         <Accordion.Content>
           daisyUI is a component library for Tailwind CSS that adds class names for building UI components.
         </Accordion.Content>
-      </Accordion.Item>
-      <Accordion.Item>
-        <Accordion.Trigger>How do I install it?</Accordion.Trigger>
+      </Accordion>
+      <Accordion name="default">
+        <Accordion.Title>How do I install it?</Accordion.Title>
         <Accordion.Content>
           Install via npm: <code>npm install daisyui</code> and add it to your Tailwind config.
         </Accordion.Content>
-      </Accordion.Item>
-      <Accordion.Item>
-        <Accordion.Trigger>Is it free?</Accordion.Trigger>
+      </Accordion>
+      <Accordion name="default">
+        <Accordion.Title>Is it free?</Accordion.Title>
         <Accordion.Content>
           Yes, daisyUI is free and open-source under the MIT license.
         </Accordion.Content>
-      </Accordion.Item>
-    </Accordion>
+      </Accordion>
+    </div>
   );
 }
 `,
@@ -51,20 +51,20 @@ export function AccordionDefault() {
 
 export function AccordionJoined() {
   return (
-    <Accordion icon="arrow" joined className="w-80">
-      <Accordion.Item defaultOpen>
-        <Accordion.Trigger>First section</Accordion.Trigger>
+    <div className="join join-vertical w-80">
+      <Accordion name="joined" icon="arrow" defaultChecked className="join-item border border-base-300">
+        <Accordion.Title>First section</Accordion.Title>
         <Accordion.Content>Content for the first section of the joined accordion.</Accordion.Content>
-      </Accordion.Item>
-      <Accordion.Item>
-        <Accordion.Trigger>Second section</Accordion.Trigger>
+      </Accordion>
+      <Accordion name="joined" icon="arrow" className="join-item border border-base-300">
+        <Accordion.Title>Second section</Accordion.Title>
         <Accordion.Content>Content for the second section.</Accordion.Content>
-      </Accordion.Item>
-      <Accordion.Item>
-        <Accordion.Trigger>Third section</Accordion.Trigger>
+      </Accordion>
+      <Accordion name="joined" icon="arrow" className="join-item border border-base-300">
+        <Accordion.Title>Third section</Accordion.Title>
         <Accordion.Content>Content for the third section.</Accordion.Content>
-      </Accordion.Item>
-    </Accordion>
+      </Accordion>
+    </div>
   );
 }
 `,
@@ -72,16 +72,16 @@ export function AccordionJoined() {
 
 export function AccordionPlus() {
   return (
-    <Accordion icon="plus" className="w-80">
-      <Accordion.Item defaultOpen>
-        <Accordion.Trigger>Click to expand</Accordion.Trigger>
+    <div className="w-80 flex flex-col gap-2">
+      <Accordion name="plus" icon="plus" defaultChecked>
+        <Accordion.Title>Click to expand</Accordion.Title>
         <Accordion.Content>This accordion uses the plus/minus icon variant.</Accordion.Content>
-      </Accordion.Item>
-      <Accordion.Item>
-        <Accordion.Trigger>Another item</Accordion.Trigger>
+      </Accordion>
+      <Accordion name="plus" icon="plus">
+        <Accordion.Title>Another item</Accordion.Title>
         <Accordion.Content>The plus icon changes to a minus when open.</Accordion.Content>
-      </Accordion.Item>
-    </Accordion>
+      </Accordion>
+    </div>
   );
 }
 `,
