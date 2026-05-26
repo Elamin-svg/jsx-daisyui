@@ -30,37 +30,18 @@ Accordion is used to show and hide content in collapsible sections.
       name: "name",
       type: "string",
       description:
-        "Name attribute for all items to group them (allowing only one to be open at a time). Auto-generated if omitted.",
+        "Shared name attribute that groups accordions so only one can be open at a time. Auto-generated if omitted.",
     },
-    {
-      name: "joined",
-      type: "boolean",
-      description:
-        "Applies 'join' styling to make the accordion items sit flush together.",
-    },
-  ]}
-/>
-
-### Accordion.Item
-
-<PropsTable
-  data={[
     {
       name: "icon",
       type: "'none' | 'arrow' | 'plus'",
       default: "'none'",
-      description: "Determines the icon variant to display on the trigger.",
+      description: "Icon variant to display on the trigger.",
     },
     {
-      name: "joined",
+      name: "defaultChecked",
       type: "boolean",
-      description:
-        "Applies joined styles to the individual item. Usually set to true if the parent Accordion is joined.",
-    },
-    {
-      name: "defaultOpen",
-      type: "boolean",
-      description: "Opens the accordion item by default on initial render.",
+      description: "Opens this accordion item by default on initial render.",
     },
   ]}
 />
