@@ -46,12 +46,12 @@ write(
 
 export function AccordionArrow() {
   return (
-    <Accordion className="w-80">
-      <Accordion.Item icon="arrow" defaultOpen>
+    <Accordion icon="arrow" className="w-80">
+      <Accordion.Item defaultOpen>
         <Accordion.Trigger>Click to open</Accordion.Trigger>
         <Accordion.Content>This accordion uses the arrow icon variant.</Accordion.Content>
       </Accordion.Item>
-      <Accordion.Item icon="arrow">
+      <Accordion.Item>
         <Accordion.Trigger>Another item</Accordion.Trigger>
         <Accordion.Content>Arrow collapses show a chevron that rotates on open.</Accordion.Content>
       </Accordion.Item>
@@ -67,12 +67,12 @@ write(
 
 export function AccordionPlus() {
   return (
-    <Accordion className="w-80">
-      <Accordion.Item icon="plus" defaultOpen>
+    <Accordion icon="plus" className="w-80">
+      <Accordion.Item defaultOpen>
         <Accordion.Trigger>Click to expand</Accordion.Trigger>
         <Accordion.Content>This accordion uses the plus/minus icon variant.</Accordion.Content>
       </Accordion.Item>
-      <Accordion.Item icon="plus">
+      <Accordion.Item>
         <Accordion.Trigger>Another item</Accordion.Trigger>
         <Accordion.Content>The plus icon changes to a minus when open.</Accordion.Content>
       </Accordion.Item>
@@ -88,16 +88,16 @@ write(
 
 export function AccordionJoined() {
   return (
-    <Accordion joined className="w-80">
-      <Accordion.Item icon="arrow" joined defaultOpen>
+    <Accordion icon="arrow" joined className="w-80">
+      <Accordion.Item defaultOpen>
         <Accordion.Trigger>First section</Accordion.Trigger>
         <Accordion.Content>Content for the first section of the joined accordion.</Accordion.Content>
       </Accordion.Item>
-      <Accordion.Item icon="arrow" joined>
+      <Accordion.Item>
         <Accordion.Trigger>Second section</Accordion.Trigger>
         <Accordion.Content>Content for the second section.</Accordion.Content>
       </Accordion.Item>
-      <Accordion.Item icon="arrow" joined>
+      <Accordion.Item>
         <Accordion.Trigger>Third section</Accordion.Trigger>
         <Accordion.Content>Content for the third section.</Accordion.Content>
       </Accordion.Item>

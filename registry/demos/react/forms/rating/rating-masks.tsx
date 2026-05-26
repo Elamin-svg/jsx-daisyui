@@ -1,12 +1,9 @@
-import {
-  Rating,
-  type RatingMask,
-} from "@registry/components/react/forms/rating";
+import { Rating, type RatingMask } from "@registry/components/react/forms/rating";
 
 const MASK_DEMOS: { mask: RatingMask; color: string; label: string }[] = [
-  { mask: "mask-star", color: "bg-yellow-400", label: "Star" },
+  { mask: "mask-star",   color: "bg-yellow-400", label: "Star"   },
   { mask: "mask-star-2", color: "bg-orange-400", label: "Star 2" },
-  { mask: "mask-heart", color: "bg-red-400", label: "Heart" },
+  { mask: "mask-heart",  color: "bg-red-400",    label: "Heart"  },
 ];
 
 export function RatingMasks() {
