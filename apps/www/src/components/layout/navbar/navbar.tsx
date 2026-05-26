@@ -5,7 +5,7 @@ import GithubIcon from "@/components/icons/github";
 import Button from "@registry/components/react/forms/button";
 import Divider from "@registry/components/react/layout/divider";
 import { Drawer, useDrawer } from "@registry/components/react/layout/drawer";
-import { Menu, Paperclip } from "lucide-react";
+import { Blocks, Menu, Paperclip } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Search from "../../ui/search";
@@ -31,7 +31,7 @@ export default function Navbar() {
           <NavDocsLink />
           <Divider
             direction="horizontal"
-            className="h-8 mx-0 my-auto hidden md:inline-flex"
+            className="h-8 mx-1 my-auto hidden md:inline-flex"
           />
           <Search />
           <div className="hidden md:flex gap-1">
@@ -48,9 +48,15 @@ export default function Navbar() {
 function NavDocsLink() {
   return (
     <div className="hidden md:flex">
+      <Link href="/blocks">
+        <Button size="sm" variant="ghost" className="text-sm font-normal">
+          <Blocks className="size-3.5 mr-0.5" />
+          Blocks
+        </Button>
+      </Link>
       <Link href="/docs">
         <Button size="sm" variant="ghost" className="text-sm font-normal">
-          <Paperclip className="size-3.5 mr-1" />
+          <Paperclip className="size-3.5 mr-0.5" />
           Docs
         </Button>
       </Link>
