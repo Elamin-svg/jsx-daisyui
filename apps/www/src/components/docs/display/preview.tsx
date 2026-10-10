@@ -95,7 +95,7 @@ function PreviewComponent({ name, children, code, label, className }: Props) {
             {finalLabel}
           </span>
           {code && (
-            <div className="tabs tabs-boxed tabs-sm">
+            <div className="tabs tabs-box tabs-sm">
               <button
                 className={`tab ${tab === "preview" ? "tab-active" : ""}`}
                 onClick={() => setTab("preview")}
