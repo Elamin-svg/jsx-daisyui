@@ -16,7 +16,7 @@
     "@types/mdx": "^2.0.13",
     "chroma-js": "^3.2.0",
     "clsx": "^2.1.1",
-    "daisyui": "^5.7.47",
+    "daisyui": "^5",
     "fuse.js": "^7.3.0",
     "lucide-react": "^1.14.0",
     "motion": "^12.38.0",
