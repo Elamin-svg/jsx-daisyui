@@ -1,11 +1,29 @@
 ﻿import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import Button from "@registry/components/react/forms/button";
 import { ArrowRight } from "lucide-react";
 import Badge from "@registry/components/react/data-display/badge";
 import DaisyuiLogo from "../../public/logos/daisyui.svg";
 import SolidjsLogo from "../../public/logos/solidjs.webp";
 import ReactLogo from "../../public/logos/react.svg";
+
+export const metadata: Metadata = {
+  title: "React DaisyUI Components for Tailwind CSS",
+  description:
+    "Explore jsx-daisyui, an open-source React component library with accessible, customizable daisyUI v5 and Tailwind CSS v4 components. Browse live previews and copy TypeScript-ready UI into your project.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "jsx-daisyui",
+    title: "React DaisyUI Components for Tailwind CSS",
+    description:
+      "An open-source React component library built on daisyUI v5, Tailwind CSS v4, and TypeScript. Browse accessible, customizable components with live previews.",
+  },
+};
 
 export default function Home() {
   return (
