@@ -11,9 +11,24 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "jsx-daisyui",
+  metadataBase: new URL("https://jsx-daisyui.com"),
+  title: {
+    default: "jsx-daisyui | React DaisyUI Components for Tailwind CSS",
+    template: "%s | jsx-daisyui",
+  },
   description:
-    "jsx-daisyui is a React component library built on daisyUI and Tailwind CSS.",
+    "Build faster with jsx-daisyui, an open-source React component library built on daisyUI v5, Tailwind CSS v4, and TypeScript. Copy accessible, customizable UI components directly into your project.",
+  keywords: [
+    "React components",
+    "daisyUI components",
+    "daisyUI v5",
+    "Tailwind CSS components",
+    "Tailwind CSS v4",
+    "React UI library",
+    "TypeScript components",
+    "accessible UI components",
+    "copy paste React components",
+  ],
 };
 
 export default function RootLayout({
