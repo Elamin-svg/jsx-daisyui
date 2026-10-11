@@ -469,7 +469,7 @@ export const docs: Doc[] = [
   {
     title: "Theme Controller",
     description:
-      "A UI control for switching between light, dark, or custom themes and persisting the preference.",
+      "A UI control for switching between DaisyUI's default light and dark themes and persisting the preference.",
     slug: "/docs/theme-controller",
     group: "effects",
   },

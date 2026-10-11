@@ -46,7 +46,7 @@ export default function App() {
 }
 ```
 
-You can also use the custom themes built for this library. Find them in the [Theming](https://jsx-daisyui.com/docs/theming) guide.
+The docs site uses DaisyUI's default `light` and `dark` themes. You can use any DaisyUI theme in your own project.
 
 ---
 
